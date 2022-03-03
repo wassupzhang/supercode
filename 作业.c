@@ -1,88 +1,123 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include<math.h>
+//42
+//int main()
+//{
+//	unsigned long pulArray[] = { 6,7,8,9,10 };
+//	unsigned long *pulptr;
+//
+//	pulptr = pulArray;
+//	*(pulptr + 3) += 3;
+//	printf("%d,%d\n", *pulptr, *(pulptr + 3));
+//	return 0;//6 12
+//}
 
-#include<stdio.h>
+//逆序操作
+#include<assert.h>
+//void reverse(char* str)
+//{
+//	assert(str);
+//	int len = strlen(str);
+//	char* left = str;//str指向第一个位置
+//	char* right = str + len - 1;
+//	while (left < right)
+//	{
+//		char tmp = *left;
+//		*left = *right;
+//		*right = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//int main()
+//{
+//	char arr[256] = { 0 };
+//	scanf("%s", arr);
+//	reverse(arr);
+//	printf("%s\n", arr);
+//	return 0;
+//}
 
 //int main()
 //{
 //	int a = 0;
-//	int b = 0;
-//	int c = 0;
-//	scanf("%d%d%d", &a, &b, &c);
-//	if (a < b)
+//	int n = 0;
+//	scanf("%d%d", &a, &n);
+//	int sum = 0;
+//	int i = 0;
+//	int ret = 0;
+//	//计算2+22+222+。。。
+//	for (i = 0; i < n; i++)
 //	{
-//		int tmp = a;
-//		a = b;
-//		b = tmp;
+//		ret = ret * 10 + a;
+//		sum += ret;
 //	}
-//	if (a < c)
-//	{
-//		int tmp = a;
-//		a = c;
-//		c = tmp;
-//	}
-//	if (b < c)
-//	{
-//		int tmp = b;
-//		b = c;
-//		c = tmp;
-//	}
-//	printf("%d%d%d", a, b, c);
-//
-//
+//	printf("%d\n", sum);
 //	return 0;
 //}
 
-
-//int main()//找最大公约数
-//{
-//	int m = 24;
-//	int n = 18;
-//	int r = 0;
-//	while (m%n != 0)//辗转相除法，用余数和除数取最大公约数
-//	{
-//		r = m % n;
-//		m = n;
-//		n = r;//余数赋值给n
-//	}
-//	printf("%d\n", n);
-//	return 0;
-//}
-
-
-//int main()
+//int main()//判断水仙花数
 //{
 //	int i = 0;
-//	for (i = 1000; i <= 2000; i++)
+//	for (i = 0; i < 100000; i++)
 //	{
-//		if (i % 4 == 0 && i%100!=0 )//  ||是或者的意思
+//		//计算i的位数- n
+//		int n = 1;
+//		int tmp = i;
+//		int sum = 0;
+//		while (tmp /= 10)
+//		{
+//			n++;
+//		}
+//		//计算i的每一位的n次方之和
+//		tmp = i;
+//		while (tmp)
+//		{
+//			sum += pow(tmp % 10, n);
+//			tmp /= 10;
+//		}
+//		if (i == sum)
+//		{
 //			printf("%d ", i);
-//		else if (i % 400 == 0)
-//			printf("%d ", i);
-//
+//		}
+//		
 //	}
 //	return 0;
 //}
 
-
-int main()//查找素数
+int main() //菱形设计
 {
+	int line = 0;
+	scanf("%d", &line);
 	int i = 0;
-	int a = 0;
-	for (i = 1; i <= 100; i++)
+	for (i = 0; i < line; i++)
 	{
-		
-		for (a = 2; a < i; a++)
+		int j = 0;
+		for (j = 0; j < line - 1 - i; j++)
 		{
-
-			if (i%a == 0)
-				break;
+			printf(" ");//打印空格
 		}
-		if (i == a)
+		for (j = 0; j < 2 * i + 1; j++)
 		{
-			printf("%d ", i);
+			printf("*");
 		}
-
+		printf("\n");
 	}
-	
+	for (i = 0; i < line - 1; i++)
+	{
+		int j = 0;
+		for (j = 0; j <= i; j++)
+		{
+			printf(" ");
+		}
+		for (j = 0; j < 2 * (line - 1 - i) - 1; j++)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
 	return 0;
 }
+
